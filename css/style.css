@@ -89,7 +89,7 @@ p {
 } */
 
 .current {
-  position: relative;
+  color: #2196f3;
 }
 
 .current::after {
@@ -101,6 +101,7 @@ p {
   width: 100%;
   height: 4px;
   border-radius: 2px;
+  color: #2196f3;
   background-color: var(--blue-text);
 }
 
