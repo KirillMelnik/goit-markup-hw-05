@@ -431,9 +431,13 @@ p {
 }
 
 .header {
-  /* position: relative;
-  min-width: 80px; */
+  min-width: none;
+  min-height: 80px;
+  width: 100%;
   border-bottom: 1px solid var(--color-line);
+  background-color: #fff;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .container {
@@ -446,6 +450,8 @@ p {
 
 .flex {
   display: flex;
+
+  /* min-height: 80px; */
   /* position: fixed;
   top: 30px;
   margin-top: 20px;
@@ -784,19 +790,24 @@ p {
   top: 50%;
   left: 50%;
 
-  height: 300px;
-  width: 400px;
-  padding: 15px;
+  max-width: 528px;
+  width: 100%;
+  padding: 40px;
+  max-height: 100vh;
 
   background-color: #fff;
   border-radius: 4px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
 
   transform: translate(-50%, -50%) scale(1);
   transition: transform 250ms var(--timing-function);
+
+  overflow-y: auto;
 }
 
 .backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(0.9);
+  transform: translate(-50%, -50%) scale(0.1);
 }
 
 .modal-icon-color {
@@ -809,6 +820,20 @@ p {
   fill: rgba(0, 0, 0, 1);
   border: 1px solid gray;
   border-radius: 50%;
-  width: 30px;
+  min-width: 30px;
   height: 30px;
+  outline: none;
+
+  transition-duration: 250ms;
+  transition-timing-function: var(--timing-function);
+}
+
+.modal-icon-color:hover {
+  background-color: rgba(117, 117, 117, 0.3);
+  border: 1px solid var(--blue-text);
+}
+
+.modal-icon-color:active {
+  fill: var(--white-text);
+  transition-duration: 0ms;
 }
