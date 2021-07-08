@@ -115,6 +115,10 @@ p {
   letter-spacing: 0.02em;
   color: var(--black-color);
   padding: 32px 0;
+  position: relative;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 
 .menu-link:hover,
@@ -131,6 +135,9 @@ p {
   padding: 32px 0;
   display: flex;
   align-items: center;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 
 .contacts-link:hover,
@@ -141,6 +148,21 @@ p {
 
 .contacts-icon {
   margin-right: 10px;
+}
+
+.current::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+}
+
+.current {
+  color: var(--accent-color);
 }
 
 /* ==========HERO============ */
@@ -193,6 +215,9 @@ p {
   cursor: pointer;
   border: none;
   padding: 10px 32px;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 
 .hero-button:hover,
@@ -268,6 +293,29 @@ p {
 
 .techskills-item:not(:last-child) {
   margin-right: var(--margin-cards);
+}
+
+.techskills-item-position {
+  position: relative;
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+    0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+}
+
+.techskills-position-absolute {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 370px;
+  padding: 27px 0;
+
+  /* display: block; */
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--white-color);
+  background-color: rgba(47, 48, 58, 0.8);
 }
 
 /* ============TEAM======== */
@@ -348,6 +396,9 @@ p {
   background-color: var(--white-color);
   fill: var(--socials-color);
   border-radius: 50%;
+  transition-property: fill, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 
 .social-link:hover,
@@ -396,6 +447,9 @@ p {
   border-radius: 4px;
   background-color: var(--white-color);
   fill: var(--socials-color);
+  transition-property: fill, border-color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 
 .clients-link:hover,
@@ -451,14 +505,13 @@ p {
   font-style: normal;
   line-height: 1.71;
   color: var(--adress-link-color);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 
 .adress-link:hover,
 .adress-link:focus {
-  color: var(--accent-color);
-}
-
-.current {
   color: var(--accent-color);
 }
 
@@ -494,6 +547,9 @@ p {
   background-color: var(--backg-footer-links);
   fill: var(--white-color);
   border-radius: 50%;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 
 .join-link:hover,
@@ -529,6 +585,9 @@ p {
   cursor: pointer;
   border: none;
   padding: 6px 22px;
+  transition-property: color, background-color, box-shadow, outline;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 
 .portfolio-button:hover,
@@ -555,6 +614,9 @@ p {
 
 .porfolio-cards-link {
   display: block;
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 
 .porfolio-cards-link:focus,
@@ -582,4 +644,96 @@ p {
   line-height: 1.87;
   letter-spacing: inherit;
   color: var(--secondary-color);
+}
+
+.porfolio-cards-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.overflow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
+}
+
+.porfolio-cards-link:hover .overflow,
+.porfolio-cards-link:focus .overflow {
+  transform: translateY(0);
+  background-color: rgba(33, 150, 243, 0.9);
+}
+
+.overflow > p {
+  padding: 63px 24px;
+  font-size: 18px;
+  line-height: 1.56;
+  color: var(--white-color);
+}
+
+/* =============MODAL=========== */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--modal-backdrop);
+  transition-property: opacity;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
+  opacity: 1;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 528px;
+  height: 581px;
+  background-color: var(--white-color);
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  fill: var(--black-color);
+  cursor: pointer;
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
+}
+
+.close-btn > svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close-btn:focus,
+.close-btn:hover {
+  fill: var(--accent-color);
+  outline: none;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
 }
